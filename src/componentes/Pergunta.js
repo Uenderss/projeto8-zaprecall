@@ -28,13 +28,15 @@ export default function Pergunta(props) {
     classDesk += ` ${solucao}`;
   }
 
-  function fecharCard(event, solucaoFinal){
+  function fecharCard(event,item, solucaoFinal){
+    let index=item+1;
+
     event.stopPropagation();
     setAberto(false);
     setMostrandoResposta(false);
     setSolucao(solucaoFinal);
     
-    callback([...respostas, solucaoFinal])
+    callback([...respostas, {index,solucaoFinal}])
     
   }
 
@@ -71,9 +73,9 @@ export default function Pergunta(props) {
           <div className="deck">
               <div className="texto">{resposta}</div>
               <div className="botoes">
-              <button className="botao red" onClick={(event) => fecharCard(event, 'nao-lembrei')}>Não Lembrei</button>
-              <button className="botao orange" onClick={(event) => fecharCard(event, 'quase-n-lembrei')}>Quase não Lembrei</button>
-              <button className="botao green" onClick={(event) => fecharCard(event, 'zap')}>Zap!</button>
+              <button className="botao red" onClick={(event) => fecharCard(event,props.index, 'nao-lembrei')}>Não Lembrei</button>
+              <button className="botao orange" onClick={(event) => fecharCard(event,props.index, 'quase-n-lembrei')}>Quase não Lembrei</button>
+              <button className="botao green" onClick={(event) => fecharCard(event,props.index, 'zap')}>Zap!</button>
               </div>
         </div>
       )}

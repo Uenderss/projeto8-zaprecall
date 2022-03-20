@@ -15,19 +15,23 @@ const decks = [
     {pergunta:"Usamos estado (state) para __",resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
 ]
 export default function Pagina1(){
-    const[respostas, setRespostas] = useState([]);
+    const[respostas, setRespostas] = useState([{}]);
+
+    console.log(respostas);
+
     return(
         <>
             <Header/>
             <main className="perguntas">
                 {
                 decks.sort().map(
-                    (decks,index)=><Pergunta key={index} questao={decks} index={index} respostas={respostas}
+                    (decks,index)=><Pergunta key={index} questao={decks} index={index} 
+                    respostas={respostas}
                     callback={setRespostas}/>
                 )
             }
             </main>
-            <Footer contador={respostas.length} total={decks.length} icones={""}/>
+            <Footer item={respostas.length} total={decks.length}/>
         </>
         
     );
