@@ -5,6 +5,7 @@ export default function Pergunta(props) {
   const { pergunta, resposta } = props.questao;
   const [aberto, setAberto] = useState(false);
   const [mostrandoResposta, setMostrandoResposta] = useState(false);
+  const [solucao, setSolucao] = useState(null);
 
   let classDesk = "pergunta";
   if (aberto) {
@@ -18,6 +19,18 @@ export default function Pergunta(props) {
     setMostrandoResposta(true);
   }
 
+  if(solucao){
+    classDesk += ` ${solucao}`;
+  }
+
+  function fecharCard(event, solucaoFinal){
+    setAberto(false);
+    setMostrandoResposta(false);
+    event.stopPropagation();
+    setSolucao(solucaoFinal);
+    
+  }
+
   return (
     <div onClick={toogleDesk} className={classDesk}>
       {!aberto && (
@@ -26,6 +39,7 @@ export default function Pergunta(props) {
           <FiPlay />
         </div>
       )}
+
       {aberto && !mostrandoResposta && (
         <div className="deck">
           <div className="texto">{pergunta}</div>
@@ -45,13 +59,14 @@ export default function Pergunta(props) {
           </div>
         </div>
       )}
+
       { aberto && mostrandoResposta &&(
           <div className="deck">
               <div className="texto">{resposta}</div>
               <div className="botoes">
-              <button className="botao red">Não Lembrei</button>
-              <button className="botao orange">Quase não Lembrei</button>
-              <button className="botao green">Zap!</button>
+              <button className="botao red" onClick={(event) => fecharCard(event, 'nao-lembrei')}>Não Lembrei</button>
+              <button className="botao orange" onClick={(event) => fecharCard(event, 'quase-n-lembrei')}>Quase não Lembrei</button>
+              <button className="botao green" onClick={(event) => fecharCard(event, 'zap')}>Zap!</button>
               </div>
         </div>
       )}
