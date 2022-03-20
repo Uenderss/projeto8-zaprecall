@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Pergunta from "./Pergunta.js";
+
 const decks = [
     {pergunta:"O que é JSX?",resposta:"Uma extensão de linguagem do JavaScript"},
     {pergunta:"O React é __",resposta:"uma biblioteca JavaScript para construção de interfaces"},
@@ -19,7 +20,7 @@ export default function Pagina1(){
             <Header/>
             <div className="perguntas">
                 {
-                decks.sort().map(
+                decks.sort((a, b) => a.itemM > b.itemM ? 1 : -1).map(
                     (decks,index)=><Pergunta key={index} questao={decks} index={index}/>
                 )
             }

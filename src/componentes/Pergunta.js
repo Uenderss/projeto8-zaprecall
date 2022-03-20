@@ -45,6 +45,17 @@ export default function Pergunta(props) {
           </div>
         </div>
       )}
+      { aberto && mostrandoResposta &&(
+          <div className="deck">
+              <div className="texto">{resposta}</div>
+              <div className="botoes">
+              <button className="botao red">Não Lembrei</button>
+              <button className="botao orange">Quase não Lembrei</button>
+              <button className="botao green">Zap!</button>
+              </div>
+        </div>
+      )}
+
     </div>
   );
 }

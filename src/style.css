@@ -71,7 +71,7 @@ section .botaoIniciar {
 }
 .aberta {
   width: 299px;
-  height: 131px;
+  height: 150px;
   background: #ffffd5;
   font-weight: 400;
   font-size: 18px;
@@ -119,4 +119,32 @@ section .botaoIniciar {
   justify-content: flex-end;
   width: 100%;
 }
+.deck .botoes{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+.deck .botao {
+  width: 85.17px;
+  height: 37.17px;
+  border-radius: 5px;
+  color: #ffffff;
+  font-family: "Recursive";
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 14px;
+  border: 0;
+}
 
+.deck .botao.red{
+  background-color: #ff3030;
+}
+.deck .botao.orange{
+  background-color: #FF922E;
+
+}.deck .botao.green{
+  background-color: #2FBE34;
+}
