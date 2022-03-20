@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Pergunta from "./Pergunta.js";
+import { useState } from "react";
 
 const decks = [
     {pergunta:"O que é JSX?",resposta:"Uma extensão de linguagem do JavaScript"},
@@ -14,18 +15,19 @@ const decks = [
     {pergunta:"Usamos estado (state) para __",resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
 ]
 export default function Pagina1(){
-
+    const[respostas, setRespostas] = useState([]);
     return(
         <>
             <Header/>
-            <div className="perguntas">
+            <main className="perguntas">
                 {
-                decks.sort((a, b) => a.itemM > b.itemM ? 1 : -1).map(
-                    (decks,index)=><Pergunta key={index} questao={decks} index={index}/>
+                decks.sort().map(
+                    (decks,index)=><Pergunta key={index} questao={decks} index={index} respostas={respostas}
+                    callback={setRespostas}/>
                 )
             }
-            </div>
-            <Footer/>
+            </main>
+            <Footer contador={respostas.length} total={decks.length} icones={""}/>
         </>
         
     );

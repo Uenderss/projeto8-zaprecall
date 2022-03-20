@@ -3,14 +3,19 @@ import { FiPlay } from "react-icons/fi";
 
 export default function Pergunta(props) {
   const { pergunta, resposta } = props.questao;
+  const {respostas,callback} =props;
+
+
   const [aberto, setAberto] = useState(false);
   const [mostrandoResposta, setMostrandoResposta] = useState(false);
   const [solucao, setSolucao] = useState(null);
+  
 
   let classDesk = "pergunta";
   if (aberto) {
     classDesk += " aberta";
   }
+
   function toogleDesk() {
     setAberto(true);
   }
@@ -24,10 +29,12 @@ export default function Pergunta(props) {
   }
 
   function fecharCard(event, solucaoFinal){
+    event.stopPropagation();
     setAberto(false);
     setMostrandoResposta(false);
-    event.stopPropagation();
     setSolucao(solucaoFinal);
+    
+    callback([...respostas, solucaoFinal])
     
   }
 
