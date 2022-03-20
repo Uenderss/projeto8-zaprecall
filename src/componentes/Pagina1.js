@@ -15,9 +15,8 @@ const decks = [
     {pergunta:"Usamos estado (state) para __",resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
 ]
 export default function Pagina1(){
-    const[respostas, setRespostas] = useState([{}]);
+    const[respostas, setRespostas] = useState([]);
 
-    console.log(respostas);
 
     return(
         <>
@@ -31,7 +30,7 @@ export default function Pagina1(){
                 )
             }
             </main>
-            <Footer item={respostas.length} total={decks.length}/>
+            <Footer item={respostas} total={decks.length}/>
         </>
         
     );

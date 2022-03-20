@@ -11,7 +11,6 @@ section.tela1 {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  
 }
 
 section figure {
@@ -83,7 +82,7 @@ header h1 {
   font-family: "Righteous";
   font-size: 36px;
 }
- main.perguntas {
+main.perguntas {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -99,6 +98,7 @@ header h1 {
   background: #ffffff;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
+  border: 0;
   margin: 12.5px;
 }
 
@@ -123,11 +123,6 @@ header h1 {
   font-size: 16px;
   line-height: 19px;
   color: #333333;
-}
-
-.texto svg {
-  height: 23px;
-  width: 20px;
 }
 
 .deck {
@@ -179,8 +174,44 @@ header h1 {
 .deck .botao.green {
   background-color: #2fbe34;
 }
+.zap,
+.zap .texto span {
+  color: #2fbe34;
+  text-decoration: line-through;
+}
 
-footer{
+.errou,
+.errou .texto span {
+  color: #ff3030;
+  text-decoration: line-through;
+}
+.quase,
+.quase .texto span {
+  color: #ff922e;
+  text-decoration: line-through;
+}
+
+.texto figure {
+  height: 23px;
+  width: 23px;
+  background-image: url("./assets/play.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  margin: 0;
+}
+
+.zap .texto figure {
+  background-image: url("./assets/zap.png");
+}
+.errou .texto figure {
+  background-image: url("./assets/errou.png");
+}
+.quase .texto figure {
+  background-image: url("./assets/quase.png");
+}
+
+footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,14 +219,14 @@ footer{
   background-color: white;
   width: 100%;
   height: 70px;
-  color:#333333;
-  font-family: 'Recursive';
+  color: #333333;
+  font-family: "Recursive";
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
   position: fixed;
   z-index: 2;
-  bottom:0;
+  bottom: 0;
   right: 0;
   left: 0;
 }
