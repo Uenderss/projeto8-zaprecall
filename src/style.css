@@ -53,11 +53,17 @@ section .botaoIniciar {
   /* color: #C0C0C0;  */
 }
 header {
-  height: 148px;
+  height: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fb6b6b;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  left: 0;
 }
 
 header div {
@@ -87,6 +93,7 @@ main.perguntas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
   margin-bottom: 244px;
 }
 .pergunta {
@@ -149,10 +156,13 @@ main.perguntas {
 .deck .botoes {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .deck .botao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 85.17px;
   height: 37.17px;
   border-radius: 5px;
@@ -174,6 +184,7 @@ main.perguntas {
 .deck .botao.green {
   background-color: #2fbe34;
 }
+
 .zap,
 .zap .texto span {
   color: #2fbe34;
@@ -190,33 +201,36 @@ main.perguntas {
   color: #ff922e;
   text-decoration: line-through;
 }
-
-.texto figure {
-  height: 23px;
-  width: 23px;
-  background-image: url("./assets/play.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+.texto figure{
   margin: 0;
 }
+.texto figure svg {
+  height: 23px;
+  width: 23px;
+}
 
-.zap .texto figure {
-  background-image: url("./assets/zap.png");
+.icon-zap{
+  fill: #2fbe34;
+  height: 23px;
+  width: 23px;
 }
-.errou .texto figure {
-  background-image: url("./assets/errou.png");
+.icon-quase{
+  height: 23px;
+  width: 23px;
+  fill:#ff922e;
 }
-.quase .texto figure {
-  background-image: url("./assets/quase.png");
+.icon-errou{
+  height: 23px;
+  width: 23px;
+  fill:#ff3030;
 }
+
 footer * {
   font-family: "Recursive";
   font-size: 18px;
   text-align: center;
   color: #333333;
 }
-
 footer {
   display: flex;
   flex-direction: column;
@@ -238,8 +252,10 @@ footer h4 {
   font-weight: 400;
   margin: 2px 0;
 }
+
 footer .status {
-  width: 73px;
+  min-width: 75px;
+  width:110px;
   min-height: 0px;
   display: flex;
   flex-direction: row;

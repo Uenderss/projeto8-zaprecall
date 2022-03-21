@@ -3,6 +3,9 @@ import Header from "./Header.js";
 import Footer from "./Footer.js";
 import Pergunta from "./Pergunta.js";
 import { useState } from "react";
+function comparacao(){
+    return Math.random()-0.5;
+}
 
 const decks = [
     {pergunta:"O que é JSX?",resposta:"Uma extensão de linguagem do JavaScript"},
@@ -14,23 +17,25 @@ const decks = [
     {pergunta:"Usamos props para __",resposta:"passar diferentes informações para componentes"},
     {pergunta:"Usamos estado (state) para __",resposta:"dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"},
 ]
-export default function Pagina1(){
+decks.sort(comparacao);
+
+export default function Pagina1(props){
     const[respostas, setRespostas] = useState([]);
     
-
     return(
         <>
             <Header/>
             <main className="perguntas">
                 {
-                decks.sort().map(
+                     decks.map(
                     (decks,index)=><Pergunta key={index} questao={decks} index={index} 
                     respostas={respostas}
                     callback={setRespostas}/>
                 )
             }
             </main>
-            <Footer item={respostas} total={decks.length}/>
+            {/* <Footer item={respostas} total={decks.length} /> */}
+            <Footer item={respostas} total={decks.length} callback={props.callback}/>
         </>
         
     );

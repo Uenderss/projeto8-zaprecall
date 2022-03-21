@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import {AiFillQuestionCircle, AiFillCheckCircle, AiFillCloseCircle} from 'react-icons/ai';
+import {FiPlay} from 'react-icons/fi';
 
 export default function Pergunta(props) {
   const { pergunta, resposta } = props.questao;
@@ -16,6 +18,8 @@ export default function Pergunta(props) {
   if (aberto) {
     classDesk += " aberta";
   }
+  
+ 
 
   function toogleDesk() {
     setAberto(true);
@@ -25,28 +29,43 @@ export default function Pergunta(props) {
     setMostrandoResposta(true);
   }
 
+  let iconeDaResposta=<FiPlay/>; 
   if(solucao){
     classDesk += ` ${solucao}`;
+    if (solucao === "zap") {
+    
+      iconeDaResposta = <AiFillCheckCircle className="icon-zap" />;
+    }
+    if (solucao === "quase") {
+      iconeDaResposta = <AiFillQuestionCircle className="icon-quase"/>;
+    }
+    if (solucao === "errou") {
+      
+      iconeDaResposta = <AiFillCloseCircle className="icon-errou"/>;
+    }
   }
+  
 
+
+  
   function fecharCard(event, solucaoFinal){
     event.stopPropagation();
     setAberto(false);
     setMostrandoResposta(false);
     setSolucao(solucaoFinal);
     setBloqueio(!bloquear);
-    
-
-    callback([...respostas, solucaoFinal])
-    
+    callback([...respostas, solucaoFinal])    
   }
+
+
+
   return (
     <>
     <button onClick={toogleDesk} className={classDesk} disabled={bloquear}>
       {!aberto && (
         <div className="texto">
           <span> {`Pergunta ${props.index + 1}`}</span>
-          <figure></figure>
+          <figure>{iconeDaResposta}</figure>
         </div>
       )}
 
@@ -74,9 +93,9 @@ export default function Pergunta(props) {
           <div className="deck">
               <div className="texto">{resposta}</div>
               <div className="botoes">
-              <button className="botao red" onClick={(event) => fecharCard(event, 'errou')}>Não Lembrei</button>
-              <button className="botao orange" onClick={(event) => fecharCard(event, 'quase')}>Quase não Lembrei</button>
-              <button className="botao green" onClick={(event) => fecharCard(event, 'zap')}>Zap!</button>
+              <div className="botao red" onClick={(event) => fecharCard(event, 'errou')}>Não Lembrei</div>
+              <div className="botao orange" onClick={(event) => fecharCard(event, 'quase')}>Quase não Lembrei</div>
+              <div className="botao green" onClick={(event) => fecharCard(event, 'zap')}>Zap!</div>
               </div>
         </div>
       )}
