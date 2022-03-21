@@ -5,11 +5,11 @@ import "../style.css";
 export default function Home() {
   // Declarar uma nova variável de state, na qual chamaremos de "count"
   const [count, setCount] = useState("Home");
-
+  const mprops =[count,setCount];
   if (count === "Pagina1") {
     return (
       <>
-        <Pagina1 />
+        <Pagina1 meuprops={mprops}/>
       </>
     );
   } else {

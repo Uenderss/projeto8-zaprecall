@@ -16,7 +16,7 @@ const decks = [
 ]
 export default function Pagina1(){
     const[respostas, setRespostas] = useState([]);
-
+    
 
     return(
         <>

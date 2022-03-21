@@ -87,7 +87,7 @@ main.perguntas {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 170px;
+  margin-bottom: 244px;
 }
 .pergunta {
   width: 300px;
@@ -226,7 +226,7 @@ footer {
   background-color: white;
   width: 100%;
   min-height: 70px;
-  max-height: 171px;
+  max-height: 244px;
   color: #333333;
   position: fixed;
   z-index: 2;
@@ -236,9 +236,9 @@ footer {
 }
 footer h4 {
   font-weight: 400;
-  margin: 10px 0;
+  margin: 2px 0;
 }
-footer .status{
+footer .status {
   width: 73px;
   min-height: 0px;
   display: flex;
@@ -253,6 +253,18 @@ footer .resultado {
   min-height: 0px;
   max-height: 44px;
   font-weight: 400;
-  margin: 4px 0;
- 
+  margin: 10px 0;
+}
+.reiniciar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 167px;
+  height: 32px;
+  border: 0;
+  background: #fb6b6b;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #ffffff;
+  margin: 21px 0;
 }

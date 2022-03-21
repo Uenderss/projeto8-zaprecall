@@ -7,22 +7,8 @@ import party from "../assets/party.png";
 
 
 export default function Footer(props) {
-  let lista = [...props.item];
-
-  function verificarIcone(icone) {
-    if (icone === "zap") {
-      return zap;
-    }
-    if (icone === "quase") {
-      return quase;
-    }
-    if (icone === "errou") {
-      return errou;
-    }
-  }
-
-
   let imgSaudacao, saudacao, texto;
+  let lista = [...props.item];
 
   if (lista.length === 8 && lista.indexOf("errou")) {
     imgSaudacao = sad;
@@ -36,7 +22,19 @@ export default function Footer(props) {
     texto = `Você não esqueceu de
            nenhum flashcard!`;
   }
- 
+
+  function verificarIcone(icone) {
+    if (icone === "zap") {
+      return zap;
+    }
+    if (icone === "quase") {
+      return quase;
+    }
+    if (icone === "errou") {
+      return errou;
+    }
+  }
+
     return (
       <footer>
         <div className="status">
@@ -52,8 +50,8 @@ export default function Footer(props) {
             <img src={verificarIcone(item)} alt={item} />
           ))}
         </h4>
-        
+            {/* {lista.length===8 ? <button className="reiniciar" >REINICIAR RECALL</button>:<></>} */}
       </footer>
     );
-  
+    
 }
